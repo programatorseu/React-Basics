@@ -1,17 +1,14 @@
-import React from 'react';
 import {render} from 'react-dom';
-
 import Team from "./Team";
 
 const App = () => {
-    return React.createElement("div", {}, [
-        React.createElement("h1", {}, "NBA Team!"),
-        React.createElement(Team, {
-            name: "Mavericks",
-            city: "Dallas", 
-            player: "Luka Doncic"
-        })
-    ]);
-};
+    return(
+        <div>
+            <Team name="Maverics" city="Dallas" player="Luka Doncic" /> 
+            <Team name="Lakes" city="Los Angeles" player="Lebron James" /> 
+            <Team name="Nuggets" city="Denver" player="Nikola Jokic" /> 
+        </div>
 
-render(React.createElement(App), document.getElementById("root"));
+    );
+};
+render(<App/>, document.getElementById("root"));

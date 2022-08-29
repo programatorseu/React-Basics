@@ -1,0 +1,13 @@
+body {
+    background-color: bisque;
+    color: #9d8c8c;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+#root > div{
+    width: 800px;
+    margin:0 auto;
+    display: grid;  
+    grid-template-columns: repeat(3, 1fr);
+}

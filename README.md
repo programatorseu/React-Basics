@@ -78,3 +78,53 @@ inside template file remember about denoting that we work with module syntax
       </body>
       <script type="module" src="./App.js"></script>
 ```
+### 2.2 JSX
+- takes html  and translates into `React.createElement()`
+JSX transform by Babel 
+
+we can delete import React - it will be imported automatically for us 
+we have been writing XML  - JS was mimic 
+mvc into small component / seperation of concerns seperate into componets 
+we do not need to name Team.babel.js :). - so we do not need to name .jsx 
+
+```js
+const Team = (props) => {
+    return (
+        <div>
+            <h1>{props.name}</h1>
+            <h2>{props.city}</h2>
+            <h2>{props.player}</h2>
+        </div>
+    );
+};
+export default Team;
+```
+```js
+import {render} from 'react-dom';
+import Team from "./Team";
+
+const App = () => {
+    return(
+        <div>
+            <Team name="Maverics" city="Dallas" player="Luka Doncic" /> 
+            <Team name="Lakes" city="Los Angeles" player="Lebron James" /> 
+            <Team name="Nuggets" city="Denver" player="Nikola Jokic" /> 
+        </div>
+
+    );
+};
+render(<App/>, document.getElementById("root"));
+```
+
+**Configure ESLint wih JS**
+```bash
+npm install -D eslint-plugin-import@2.25.4 eslint-plugin-jsx-a11y@6.5.1 eslint-plugin-react@7.28.0
+```
+* import allow to run eslint across files , react allow eslint to understand more features 
+
+* a11y - basic accessibility (make sure that images are not buttons for example)
+
+* disable 2 rules inside eslint
+    * react in jsx turn off -problem with leaving empty space without import 
+    * prop-types --> making sure that right type is assigned - also turn off
+* another option is to add to eslin react version detection :
