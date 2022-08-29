@@ -128,3 +128,35 @@ npm install -D eslint-plugin-import@2.25.4 eslint-plugin-jsx-a11y@6.5.1 eslint-p
     * react in jsx turn off -problem with leaving empty space without import 
     * prop-types --> making sure that right type is assigned - also turn off
 * another option is to add to eslin react version detection :
+
+### 2.3 Search Component
+State - interactivity 
+Hooks are for adding statefulness for UI 
+
+SearchWithin
+```js
+const SearchWithin = () => {
+    const location = "Los Angeles, CA";
+    return (
+        <div className="search-params">
+        <form>
+            <label htmlFor="location">
+                Location
+                <input id="location" value={location} placeholder="Location"></input>
+            </label>
+            <button>Submit</button>
+        </form>
+    </div>
+    );
+};
+export default SearchWithin;
+```
+
+```js
+
+const App = () => {
+    return(
+       <SearchWithin /> 
+    );
+};
+```
