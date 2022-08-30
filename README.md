@@ -594,3 +594,12 @@ active -> 0 first image
 
 static for default image - -- we will have many instances and they will all shared 1 prop (default image)
 
+
+
+### 3.7 Managing State in Class Components 
+
+state belong to carousel and Carousel can modiy
+
+props comes from sth being passed in (default props or from parent)
+
+pass Carousel to details 
