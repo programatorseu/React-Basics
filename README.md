@@ -292,3 +292,42 @@ under the form - use map to populate
   }
 ```
 
+
+
+### 2.7 Custom Hooks
+
+Hooks - methodology of writing code 
+
+render - empty state 
+
+we use effect to run after render
+
+
+
+state that will be feeded 
+
+if we have several hooks in a row  and can be applicable to another component -> we can build custom Hook
+
+retrun 2 things back to customer:
+
+- list of breeds
+
+- status whether is pending, error - ENUM
+  - async 
+  - reset breed list
+  - add status 
+  - add inside useEffect animal to track changes so React will take care of changing 
+
+
+
+
+
+got to search component
+
+```js
+import useBreedList from "./useBreedList";
+
+// replace `const breeds = [];`
+const [breeds] = useBreedList(animal);
+```
+
