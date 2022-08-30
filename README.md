@@ -160,3 +160,8 @@ const App = () => {
     );
 };
 ```
+### 2.4 useState Hook
+hook - always start with `use`
+import useState from react  in the top 
+- destructing value with useState `setMutator`
+- call `onChange` on input -> inside call `onChange`
