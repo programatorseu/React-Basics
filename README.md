@@ -695,3 +695,118 @@ if (this.state.redirect) {
 
 dark mode / light mode of web 
 
+
+
+`ThemeContext`
+
+-> import createContext (default value -)
+
+-> mimic useState look  like  (`const[theme, setTheme] = useState('darkblue')`)
+
+```js
+import { createContext } from "react";
+
+const ThemeContext = createContext(["green", () => {}]);
+
+export default ThemeContext;
+```
+
+`createContext` is a function that returns an object with two React components in it: a Provider and a Consumer
+
+import in App
+
+create hook with `useState` passing default value and not destructurring it 
+
+wrap wtih `ThemeContext.Provider` 
+
+mechanism by which React will notify the higher components to re-render whenever our context changes.
+
+
+
+```js
+import { StrictMode, useState } from "react";
+import ThemeContext from "./ThemeContext";
+
+// top of App function body
+const theme = useState("darkblue");
+
+// wrap the rest of the app
+<ThemeContext.Provider value={theme}>[…]</ThemeContext.Provider>;
+```
+
+
+
+inside SearchParam : 
+
+```js
+import { useState, useEffect, useContext } from "react";
+
+// inside SearchWithin
+// there is setTheme but we are not going to use 
+    const[theme] = useContext(ThemeContext);
+// add to button
+// {} -> let know jsx that there is expression we are putting into
+// {{}}-> those inside mean that this is an object 
+<button style={{backgroundColor:theme}}>Submit</button>
+```
+
+inside Details - class component
+
+- we're using the `Consumer` from `ThemeContext`. Functionally this works the same way though.
+
+```js
+          <ThemeContext.Consumer>
+            {
+                ([theme]) => (
+                    <button style={{backgroundColor: theme}}>Adopt {name}</button>
+                )
+            }
+          </ThemeContext.Consumer>
+```
+
+### 4.3 context & state 
+
+in the top in hook - add setter 
+
+add select option 
+
+
+
+### 4.4 Portals & useRef
+
+Modal as lazy design 
+
+1. add #modal to index.html (empty div)
+
+2. create react component that only rend to it - devil.js 
+
+3. import  `useEffect, useRef` / `createPortal` from `react-dom` 
+
+4. create Modal function that take children and render 
+
+   1. element ref with `ref` 
+
+   > make sure we got the same thing in all over the render 
+   >
+   > `const x = {}; const z = {}; const z =x; z===x`
+   >
+   > `elRef` - immutable object = froze object
+   >
+   > we can set only `current` of that object 
+
+   2. elRef.current -> assign div - particual div that will be fixed 
+
+​		3. useEffect - when it gets rendered - need to render to that portal spot on dom 
+
+ 		4. need to  clean up after you're done (we need to remove the div once the Modal is  no longer being rendered) you can return a function inside of `useEffect` that cleans up.
+
+​		5. Down at the bottom we use React's `createPortal` to pass the children (whatever you put inside `<Modal></Modal>`) to the portal div.
+
+Now go to Details.js and add:
+
+- import 
+- add `showModal:false`  inside false
+- function to toggleModal - `setState` to opposite what `showModal` is 
+- add to destructuring `showModal`
+- button onclick
+- under description put `Modal` component and what we want to display inside 
