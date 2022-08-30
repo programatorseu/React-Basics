@@ -252,3 +252,43 @@ we are going to use
                     </select>
                 </label>
 ```
+
+### 2.6 Effects 
+
+- import useEffect
+- allow use to register function that will be called after render finishes its job. It is like addEventListener function 
+
+> we want to call request when page loads 
+>
+> - then we would like to call after searching form 
+>
+> inside we can pass dependcy array  - for example pass `city` and whenever city is changed then call API
+
+fetch gives back promise right. a way- says 
+
+```js
+    const [pets, setPets] = useState([]);
+    useEffect(() => {
+        requestPets();
+    }, []);
+
+    async function requestPets() {
+        const response = await fetch(
+            `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
+        );
+        const json = await response.json();
+        setPets(json.pets);
+    }
+```
+
+under the form - use map to populate 
+- remember about putting keys ! - useful for swapping in rendering
+
+```js
+        {
+  pets.map((pet) => (
+    <Pet name={pet.name} animal={pet.animal} breed={pet.breed} key={pet.id} />
+  ))
+  }
+```
+
