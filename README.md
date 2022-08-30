@@ -556,3 +556,41 @@ const WrappedDetails = () => {
 };
 ```
 
+
+
+#### 3.6 Class Properties
+
+Class properties are a new part of JavaScript so we need Parcel transform the code when Parcel transpiles our code.
+
+
+
+Parcel will merge this config with what it has already, so we just need to pull in the one Babel plugin we need.
+
+
+
+```bash
+npm i -D @babel/plugin-proposal-class-properties@7.16.7
+```
+
+
+
+Now make a file called `.babelrc` with the following:
+
+```json
+{
+  "plugins": ["@babel/plugin-proposal-class-properties"]
+}
+```
+
+Babel as code transformer  or transpiler (built-in in parcel)
+
+babel do JSX transformation 
+
+
+
+--> Carousel
+
+active -> 0 first image 
+
+static for default image - -- we will have many instances and they will all shared 1 prop (default image)
+
