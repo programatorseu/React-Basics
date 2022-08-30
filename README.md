@@ -474,3 +474,34 @@ Route path -> regex match
             </BrowserRouter>
 ```
 
+#### 3.2 React Router Link
+
+
+
+now we have full page refresh 
+
+- we do not want if we do SPA 
+
+inside Pet component
+
+```js
+import { Link } from "react-router-dom";
+```
+
+then wrap with Link instead of `<a>`
+
+```js
+      <Link to={`/details/${id}`} className="pet">
+```
+
+ end result is still anchor  + additional logic 
+
+- move component - relative path will be correct to whatever browser router context is
+
+
+
+in details useParams from react-router-dom to get id 
+
+```js
+import { useParams } from "react-router-dom";
+```
