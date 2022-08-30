@@ -505,3 +505,36 @@ in details useParams from react-router-dom to get id
 ```js
 import { useParams } from "react-router-dom";
 ```
+
+
+
+### 3.3 Hash Router 
+
+/#/details/1 -> send everybody to the one page and it will work 
+
+with browserRouter 
+
+we need to make sure all routes (Ngnix or Apache) -> route to the same index.html
+
+
+
+with Browser - experience better for user and SEO 
+
+
+
+#### 3.4 Class Coponents
+
+old way - **must have render function**
+
+-> import Component and exnted
+
+-> we can not use `useStatement`
+
+ -> create constructor with reference to `super()` constructor
+
+-> add state 
+
+-> write @render method 
+
+	- check state 
+	- destruct
