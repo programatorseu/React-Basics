@@ -26,5 +26,8 @@
   },
   "browserslist": [
     "last 2 Firefox versions"
-  ]
+  ],
+  "dependencies": {
+    "react-router-dom": "^6.2.1"
+  }
 }

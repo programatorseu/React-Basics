@@ -425,3 +425,52 @@ import { useState, useEffect, useDebugValue } from "react";
 useDebugValue('Print to extne')
 ```
 
+
+
+### 3. Features
+
+#### 3.1 React Router 
+
+- was Reach router
+
+very fast - client side router 
+
+written by the same  folks who created  ember router and remix 
+
+SPA - single page application 
+
+- people land on page when they move to other page - do not make full request
+
+-> routing to different page inside JS app
+
+```js
+npm i react-router-dom@6.2.1
+```
+
+React-router-native thee is also 
+
+inside App omport
+
+```js
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+```
+
+
+
+BrowserRouter -> parent 
+
+Routes component ->  like switch 
+
+Route path -> regex match 
+
+```js
+            <BrowserRouter>
+                <h1> Adop Me! </h1>
+                <Routes>
+                    <Route path="/details/:id" element={<Details />} />
+                    <Route path="/" element={<SearchWithin />} />
+                </Routes>
+            </BrowserRouter>
+```
+
