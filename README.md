@@ -626,3 +626,72 @@ data-index={index}
 
 
 
+
+
+### 4. Special React Tools
+
+### 4.1 Error Boundaries
+
+be defensive about untrusted components that error will not bubble up
+
+Next.js wrap your app within bubble 
+
+
+
+Create Error Boundary component -> must be class component (Function not allow to set boundaries )
+
+call specific react function `getDerivedStateFromError` 
+
+​	-> an error got caught / we are going re-render your component -> what state you want for your componenet
+
+call another specific function `componentDidCatch` with error and info message about 
+
+render() if error else `this.props.children`
+
+ `ErrorBoundary`  must place outside the place where we expect error to happen 
+
+
+
+import to Details and wrap `ErrorBoundary` around `Details Component` inside function component
+
+
+
+Redirecting:  
+
+`componentDidUpdate` - another lifecycle method
+
+
+
+```js
+// top
+import { Link, Navigate } from "react-router-dom";
+
+// add redirect
+state = { hasError: false, redirect: false };
+
+// under componentDidCatch
+componentDidUpdate() {
+  if (this.state.hasError) {
+    setTimeout(() => this.setState({ redirect: true }), 5000);
+  }
+}
+
+// first thing inside render
+if (this.state.redirect) {
+  return <Navigate to="/" />;
+} } else if (this.state.hasError) {
+  …
+}
+
+```
+
+### 4.2 Context 
+
+ It's application-level state
+
+-> what if we want to affect entire page
+
+-> keep state that affect entire application 
+
+dark mode / light mode of web 
+
