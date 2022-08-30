@@ -331,3 +331,25 @@ import useBreedList from "./useBreedList";
 const [breeds] = useBreedList(animal);
 ```
 
+
+
+### 2.8 Handlig User Input 
+
+- add onSubmit to form 
+- useState will take care of monitoring states that will be passed to API request 
+
+that API uses AZURE functions
+
+
+
+```js
+    <form onSubmit={(e) => {
+            e.preventDefault();
+            requestPets();
+        }}>
+```
+
+
+
+### 2.9 Component Composition
+
