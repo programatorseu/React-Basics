@@ -353,3 +353,19 @@ that API uses AZURE functions
 
 ### 2.9 Component Composition
 
+react way - small component / our search is becomming to big 
+
+easier to manage / to reason about 
+
+watch out to have too many components in tree 
+
+Result.js
+
+then inport inside Search component
+
+Refactor Pet.js to populate with props (use destruct)
+
+
+
+
+
