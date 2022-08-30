@@ -603,3 +603,26 @@ state belong to carousel and Carousel can modiy
 props comes from sth being passed in (default props or from parent)
 
 pass Carousel to details 
+
+
+
+### 3.8 Handling Events in Class Components 
+
+```jsx
+// add event listener
+  handleIndexClick = event => {
+    this.setState({
+      active: +event.target.dataset.index
+    });
+  };
+
+// above img
+// eslint-disable-next-line
+
+// add to img
+onClick={this.handleIndexClick}
+data-index={index}
+```
+
+
+
