@@ -165,3 +165,90 @@ hook - always start with `use`
 import useState from react  in the top 
 - destructing value with useState `setMutator`
 - call `onChange` on input -> inside call `onChange`
+useState hook - we need to call in order 
+- do not put in loops and if statements 
+
+onChange inside input - > is not good idea / better call `onSubmit` 
+on `form`
+
+React emitates Event object of the browser but it is doing it much more faster
+
+```js
+import { useState } from "react";
+const SearchWithin = () => {
+    const[location, setLocation] = useState("");
+    return (
+        <div className="search-params">
+        <form>
+            <label htmlFor="location">
+                Location
+                <input id="location" value={location} placeholder="Location"
+                onChange={(e) => setLocation(e.target.value)}></input>
+            </label>
+            <button>Submit</button>
+        </form>
+    </div>
+    );
+};
+export default SearchWithin;
+```
+
+### 2.5 Mapping Data 
+```bash
+npm install -D eslint-plugin-react-hooks@4.3.0
+```
+```json
+{
+  "extends": [
+    …
+    "plugin:react-hooks/recommended",
+    …
+  ],
+  "plugins": […, "react-hooks"],
+}
+```
+map is going to take array and translate into list of React components 
+
+we use map to translate into JSX 
+
+```js
+const DIVISIONS = ["Pacific", "Southwest", "NorthWest", "Atlantic", "Central", "Southeast" ];
+...
+ const[division, setDivision] = useState("");
+```
+
+
+
+we are going to use 
+
+- onChange 
+
+- onBlur (for screen reader and other similar tools that will not fire onChange event)
+
+```js
+            <label htmlFor="division">
+                    Division
+                    <select
+                        id="animal"
+                        value={division}
+                        onChange={(e) => {
+                            setDivision(e.target.value);
+               
+                        }}
+                        onBlur={(e) => {
+                            setDivision(e.target.value);
+               
+                        }}
+                        >
+                            <option/>
+                            {DIVISIONS.map((division) => {
+                                return(
+                                    <option key={division} value={division}>
+                                        {division}
+                                    </option>
+                                );
+                            })}
+                            
+                    </select>
+                </label>
+```
