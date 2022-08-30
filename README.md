@@ -367,5 +367,61 @@ Refactor Pet.js to populate with props (use destruct)
 
 
 
+### 2.10 Production
 
+`NODE_ENV=development`
+
+Parcel.js will compile dev
+
+```
+parcel build <entry point>
+```
+
+automatically change `NODE_ENV`
+
+`npx parcel build src/index.html`
+
+`npx serve dist`
+
+
+
+Te dev bundle of React is quite a bit bigger and quite a bit slower than  the production build. Make sure you're compiling with the correct  environmental variables or your users will suffer.
+
+
+
+
+
+React has a new strict mode. If you wrap your app in `<React.StrictMode></React.StrictMode>` it will give you additional warnings about things you shouldn't be doing
+
+
+
+```js
+
+
+// import at top
+import { StrictMode } from "react";
+
+// replace App
+const App = () => {
+  return (
+    <StrictMode>
+      <div>
+        <h1>Adopt Me!</h1>
+        <SearchParams />
+      </div>
+    </StrictMode>
+  );
+};
+
+```
+
+### 2.11 React DEV tools 
+
+in custom cook : 
+
+```js
+import { useState, useEffect, useDebugValue } from "react";
+
+useDebugValue('Print to extne')
+```
 

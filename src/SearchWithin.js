@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useDebugValue } from "react";
 import Pet from "./Pet";
 import Results from "./Results";
 import useBreedList from "./useBreedList";
@@ -9,6 +9,8 @@ const SearchWithin = () => {
     const [breed, setBreed] = useState("");
     const [breeds] = useBreedList(animal);
     const [pets, setPets] = useState([]);
+
+    useDebugValue('Information here');
     useEffect(() => {
         requestPets();
     }, []);

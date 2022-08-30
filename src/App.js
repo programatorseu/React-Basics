@@ -4,7 +4,6 @@ import SearchWithin from './SearchWithin';
 
 const App = () => {
     return(
-
        <SearchWithin /> 
     );
 };
