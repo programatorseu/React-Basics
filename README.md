@@ -538,3 +538,21 @@ old way - **must have render function**
 
 	- check state 
 	- destruct
+
+#### 3.5 Fetch data from API in class component
+
+lifecycle method
+
+`async componentDidMount()` -> run after render is complete 
+
+we need ID -comes from `useParams`that we can not use in Class component
+
+- wrap in another component   -> function one 
+
+```js
+const WrappedDetails = () => {
+  const params = useParams();
+  return <Details params={params} />;
+};
+```
+
